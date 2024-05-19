@@ -9,223 +9,241 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <style>
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
-        header {
-            background-image: linear-gradient(to right, #4B0082, #320e54);
-            color: white;
-            padding: 0 15px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            position: relative;
-            z-index: 1000;
-        }
+header {
+    background-image: linear-gradient(to right, #4B0082, #320e54);
+    color: white;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+    z-index: 1000;
+}
 
-        .header-logo img {
-            width: 200px;
-            height: auto;
-        }
+.header-logo img {
+    width: 200px;
+    height: auto;
+}
 
-        .nav-links {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-grow: 1;
-            z-index: 1000;
-        }
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    z-index: 1000;
+}
 
-        .nav-links a {
-            color: #ccccff;
-            margin: 0 10px;
-            text-decoration: none;
-            font-size: 1em;
-            position: relative;
-            z-index: 1000;
-        }
+.nav-links a {
+    color: #ccccff;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 1em;
+    position: relative;
+    z-index: 1000;
+}
 
-        .nav-links a:hover {
-            color: white;
-        }
+.nav-links a:hover {
+    color: white;
+}
 
-        .nav-buttons {
-            display: flex;
-            align-items: center;
-            z-index: 1001;
-        }
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    z-index: 1001;
+}
 
-        .nav-buttons a {
-            color: white;
-            padding: 10px 15px;
-            margin-left: 10px;
-            text-decoration: none;
-            border-radius: 5px;
-            border: 1px solid #ccccff;
-            position: relative;
-            z-index: 1000;
-        }
+.nav-buttons .login,
+.nav-buttons .signup {
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid #ccccff;
+    margin-left: 20px; /* Space between login and signup */
+}
 
-        .nav-buttons .signup {
-            background-color: #7D3C98;
-        }
+.nav-buttons .signup {
+    background-color: #7D3C98;
+}
 
-        .nav-buttons .login:hover,
-        .nav-buttons .signup:hover {
-            background-color: #ccccff;
-            color: #4B0082;
-        }
+.nav-buttons .login:hover,
+.nav-buttons .signup:hover {
+    background-color: #ccccff;
+    color: #4B0082;
+}
 
-        .menu-icon {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            z-index: 1002;
-        }
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 1002;
+}
 
-        .menu-icon div {
-            width: 25px;
-            height: 3px;
-            background-color: white;
-            margin: 4px;
-        }
+.menu-icon div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px;
+}
 
-        @media (max-width: 768px) {
-            .nav-links,
-            .nav-buttons {
-                display: none;
-                flex-direction: column;
-                align-items: flex-start;
-                width: 100%;
-                background-color: #4B0082;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                padding: 10px 0;
-                z-index: 999;
-            }
+@media (max-width: 768px) {
+    .nav-links,
+    .nav-buttons {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        background-color: #4B0082;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 10px 0;
+        z-index: 999;
+    }
 
-            .nav-links.show {
-                display: flex;
-            }
+    .nav-links.show {
+        display: flex;
+    }
 
-            .nav-buttons.show {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                width: 100%;
-            }
+    .nav-buttons.show {
+        display: flex;
+    }
 
-            .nav-links a,
-            .nav-buttons a {
-                padding: 10px 20px;
-                width: 100%;
-                text-align: left;
-                margin: 5px 0;
-            }
+    .nav-links a,
+    .nav-buttons .login,
+    .nav-buttons .signup {
+        padding: 10px 20px;
+        width: 100%;
+        text-align: left;
+        margin: 5px 0;
+    }
 
-            .menu-icon {
-                display: flex;
-            }
-        }
+    .menu-icon {
+        display: flex;
+    }
+}
 
-        .container {
-            width: 80%;
-            margin: 0 auto;
-            padding: 20px 0;
-            flex: 1;
-        }
+@media (max-width: 480px) {
+    footer {
+        padding: 10px 0;
+    }
 
-        .content {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
+    .footer-logo img {
+        width: 100px;
+    }
 
-        h2 {
-            color: black;
-            font-size: 2.1em;
-        }
+    .footer-socials {
+        flex-direction: column;
+        display: flex;
+        text-align: center;
+    }
 
-        .team-section {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
+    .footer-content p {
+        font-size: 13px;
+        padding: 10px 10px 10px 30px;
+    }
+}
 
-        .team-member {
-            text-align: center;
-            margin: 20px;
-        }
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px 0;
+    flex: 1;
+}
 
-        .team-member img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
+.content {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
 
-        footer {
-            background-color: #b7b0b0;
-            color: #333;
-            padding: 40px 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            width: 100%;
-        }
+h2 {
+    color: black;
+    font-size: 2.1em;
+}
 
-        .footer-logo img {
-            width: 150px;
-            height: auto;
-        }
+.team-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
 
-        .footer-content p {
-            margin: 10px 0;
-        }
+.team-member {
+    text-align: center;
+    margin: 20px;
+}
 
-        .footer-socials {
-            display: flex;
-            text-align: center;
-        }
+.team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
 
-        .footer-socials a {
-            color: #000;
-            margin: 5px 10px;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+footer {
+    background-color: #b7b0b0;
+    color: #333;
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
 
-        .footer-socials a img {
-            width: 20px;
-            height: 20px;
-        }
+.footer-logo img {
+    width: 150px;
+    height: auto;
+}
 
-        .footer-socials a:hover {
-            color: #7D3C98;
-        }
+.footer-content p {
+    margin: 10px 0;
+}
+
+.footer-socials {
+    display: flex;
+    text-align: center;
+}
+
+.footer-socials a {
+    color: #000;
+    margin: 5px 10px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-socials a img {
+    width: 20px;
+    height: 20px;
+}
+
+.footer-socials a:hover {
+    color: #7D3C98;
+}
     </style>
 </head>
 
 <body>
     <header>
         <div class="header-logo">
-            <a href="./index.html"><img src="logo/simple.png" alt="Aicumen.AI Logo"></a>
+            <a href="./index.html"><img src="./logo/simple.png" alt="Aicumen.AI Logo"></a>
         </div>
         <nav class="nav-links" id="nav-links">
             <a href="./index.html">Home</a>
@@ -233,7 +251,7 @@
             <a href="./guide.html">Guide</a>
             <a href="./services.html">Services</a>
         </nav>
-        <div class="nav-buttons" id="nav-buttons">
+        <div class="nav-buttons">
             <a href="#" class="login">Log In</a>
             <a href="#" class="signup">Sign up free</a>
         </div>
@@ -273,7 +291,7 @@
                         <p>RestfulAPI/ML Expert</p>
                     </div>
                     <div class="team-member">
-                        <img src="aboutus/3.png" alt="Muhammad Haris">
+                        <img src="3.png" alt="Muhammad Haris">
                         <h3>Muhammad Haris</h3>
                         <p>UX Designer</p>
                     </div>
@@ -284,7 +302,7 @@
 
     <footer>
         <div class="footer-logo">
-            <img src="logo/simple.png" alt="Aicumen.AI Logo">
+            <img src="./logo/simple.png" alt="Aicumen.AI Logo">
         </div>
         <div class="footer-content" id="footer-content">
             <p>© 2023 Aicumen.AI. All rights reserved.</p>
@@ -293,30 +311,28 @@
         <h5 class="footer_chatbot_single_h5">Social</h5>
         <div class="footer-socials">
             <a href="https://facebook.com">
-                <img src="socials/facebook.png" alt="Facebook">Facebook
+                <img src="./socials/facebook.png" alt="Facebook">Facebook
             </a>
             <a href="https://instagram.com">
-                <img src="socials/instagram.png" alt="Instagram">Instagram
+                <img src="./socials/instagram.png" alt="Instagram">Instagram
             </a>
             <a href="https://twitter.com">
-                <img src="socials/twitter.png" alt="Twitter">Twitter
+                <img src="./socials/twitter.png" alt="Twitter">Twitter
             </a>
             <a href="https://linkedin.com">
-                <img src="socials/linkedin.png" alt="LinkedIn">LinkedIn
+                <img src="./socials/linkedin.png" alt="LinkedIn">LinkedIn
             </a>
         </div>
     </footer>
-
-    <script>
-        const menuIcon = document.getElementById('menu-icon');
-        const navLinks = document.getElementById('nav-links');
-        const navButtons = document.getElementById('nav-buttons');
-
-        menuIcon.addEventListener('click', () => {
-            navLinks.classList.toggle('show');
-            navButtons.classList.toggle('show');
-        });
-    </script>
 </body>
+
+<script>
+    document.getElementById("menu-icon").addEventListener("click", function () {
+        var navLinks = document.getElementById("nav-links");
+        navLinks.classList.toggle("show");
+        var navButtons = document.querySelector(".nav-buttons");
+        navButtons.classList.toggle("show");
+    });
+</script>
 
 </html>

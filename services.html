@@ -28,10 +28,12 @@
             align-items: center;
             justify-content: space-between;
             width: 100%;
+            position: relative;
+            z-index: 1000;
         }
 
         .header-logo img {
-            width: 150px;
+            width: 200px;
             height: auto;
         }
 
@@ -40,6 +42,7 @@
             align-items: center;
             justify-content: center;
             flex-grow: 1;
+            z-index: 1000;
         }
 
         .nav-links a {
@@ -47,16 +50,18 @@
             margin: 0 10px;
             text-decoration: none;
             font-size: 1em;
+            position: relative;
+            z-index: 1000;
         }
 
         .nav-links a:hover {
             color: white;
         }
-
         .nav-buttons {
-            display: flex;
-            align-items: center;
-        }
+        display: flex;
+        align-items: center;
+        z-index: 1001; /* Ensure buttons are above links */
+    }
 
         .nav-buttons a {
             color: white;
@@ -65,6 +70,8 @@
             text-decoration: none;
             border-radius: 5px;
             border: 1px solid #ccccff;
+            position: relative;
+            z-index: 1000;
         }
 
         .nav-buttons .signup {
@@ -76,6 +83,60 @@
             background-color: #ccccff;
             color: #4B0082;
         }
+
+        .menu-icon {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 1002; /* Ensure menu icon is above everything */
+        }
+
+        .menu-icon div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 4px;
+        }
+
+        @media (max-width: 768px) {
+        .nav-links,
+        .nav-buttons {
+            display: none;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+            background-color: #4B0082;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            padding: 10px 0;
+            z-index: 999;
+        }
+
+        .nav-links.show {
+            display: flex;
+        }
+
+        .nav-buttons.show {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+        }
+
+        .nav-links a,
+        .nav-buttons a {
+            padding: 10px 20px;
+            width: 100%;
+            text-align: left;
+            margin: 5px 0;
+        }
+
+        .menu-icon {
+            display: flex;
+        }
+    }
+
 
         .container {
             width: 80%;
@@ -112,8 +173,8 @@
         }
 
         .service {
-            flex: 0 0 48%;
-            max-width: 48%;
+            flex: 0 0 100%;
+            max-width: 100%;
             background: black;
             padding: 60px 30px;
             margin: 1%;
@@ -125,6 +186,7 @@
             flex-direction: column;
             justify-content: center;
             transition: transform 0.3s ease, background 0.3s ease;
+            z-index: 1;
         }
 
         .service:hover,
@@ -151,6 +213,7 @@
             display: flex;
             justify-content: space-between;
             transform: translateY(-50%);
+            z-index: 2;
         }
 
         .slider-nav button {
@@ -262,14 +325,19 @@
             color: #888;
         }
 
-        @media (max-width: 1024px) {
+        @media (min-width: 769px) {
             .service {
-                flex: 0 0 100%;
-                max-width: 100%;
+                flex: 0 0 48%;
+                max-width: 48%;
             }
         }
 
         @media (max-width: 768px) {
+            .service {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+
             .nav-links {
                 flex-direction: column;
                 align-items: flex-start;
@@ -283,7 +351,7 @@
 
             .nav-buttons a {
                 margin-left: 0;
-                margin-top: 10px;
+                margin-top: 5px;
             }
         }
     </style>
@@ -292,21 +360,25 @@
 <body>
     <header>
         <div class="header-logo">
-            <a href="index.html">
-                <img src="logo/simple.png" alt="Aicumen.AI Logo">
-            </a>
+            <a href="./index.html"><img src="logo/simple.png" alt="Aicumen.AI Logo"></a>
         </div>
-        <nav class="nav-links">
+        <nav class="nav-links" id="nav-links">
             <a href="./index.html">Home</a>
             <a href="#">Services</a>
-            <a href="./aboutus.html">About Us</a>
             <a href="./guide.html">Guide</a>
+            <a href="./aboutus.html">About Us</a> <!-- "About Us" button added -->
         </nav>
-        <div class="nav-buttons">
+        <div class="nav-buttons" id="nav-buttons">
             <a href="#" class="login">Log In</a>
             <a href="#" class="signup">Sign up free</a>
         </div>
+        <div class="menu-icon" id="menu-icon">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     </header>
+
     <div class="container">
         <h2>Our Services</h2>
         <div class="services-section">
@@ -382,9 +454,9 @@
         <div class="footer-logo">
             <img src="logo/simple.png" alt="Aicumen.AI Logo">
         </div>
-        <div class="footer-content">
+        <div class="footer-content" id="footer-content">
             <p>© 2023 Aicumen.AI. All rights reserved.</p>
-            <p>Contact us: info@aicumen.ai</p>
+            <p>Contact us: comingsoon@gmail.com</p>
         </div>
         <div class="footer-socials">
             <a href="https://twitter.com/aicumen">
@@ -407,23 +479,47 @@
         const prevBtn = document.getElementById('prev');
         const nextBtn = document.getElementById('next');
         const serviceCount = wrapper.children.length;
-        const serviceWidth = wrapper.children[0].clientWidth;
         let currentIndex = 0;
 
-        prevBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + serviceCount) % serviceCount;
-            updateWrapperPosition();
-        });
-
-        nextBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % serviceCount;
-            updateWrapperPosition();
-        });
-
         function updateWrapperPosition() {
+            const serviceWidth = wrapper.children[0].clientWidth;
             const offset = currentIndex * serviceWidth;
             wrapper.style.transform = `translateX(-${offset}px)`;
         }
+
+        function handlePrevClick() {
+            currentIndex = Math.max(currentIndex - 1, 0);
+            updateWrapperPosition();
+        }
+
+        function handleNextClick() {
+            currentIndex = Math.min(currentIndex + 1, serviceCount - 1);
+            updateWrapperPosition();
+        }
+
+        prevBtn.addEventListener('click', handlePrevClick);
+        nextBtn.addEventListener('click', handleNextClick);
+
+        const menuIcon = document.getElementById('menu-icon');
+        const navLinks = document.getElementById('nav-links');
+        const navButtons = document.getElementById('nav-buttons');
+
+        menuIcon.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+            navButtons.classList.toggle('show');
+        });
+
+        const footerToggle = document.getElementById('footer-toggle');
+        const footerContent = document.getElementById('footer-content');
+        const footerSocials = document.querySelector('.footer-socials');
+
+        footerToggle.addEventListener('click', () => {
+            footerContent.classList.toggle('show');
+            footerSocials.classList.toggle('show');
+        });
+
+        window.addEventListener('resize', updateWrapperPosition);
+        window.addEventListener('load', updateWrapperPosition);
     </script>
 </body>
 

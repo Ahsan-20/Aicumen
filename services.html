@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Aicumen.AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-image: linear-gradient(to right, #4B0082, #320e54);
+            color: white;
+            padding: 0 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .header-logo img {
+            width: 150px;
+            height: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+        }
+
+        .nav-links a {
+            color: #ccccff;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 1em;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-buttons a {
+            color: white;
+            padding: 10px 15px;
+            margin-left: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            border: 1px solid #ccccff;
+        }
+
+        .nav-buttons .signup {
+            background-color: #7D3C98;
+        }
+
+        .nav-buttons .login:hover,
+        .nav-buttons .signup:hover {
+            background-color: #ccccff;
+            color: #4B0082;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px 0;
+            flex: 1;
+        }
+
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h2 {
+            color: black;
+            font-size: 2.1em;
+        }
+
+        .services-section {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: auto;
+            margin-bottom: 40px;
+        }
+
+        .services-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            gap: 20px;
+        }
+
+        .service {
+            flex: 0 0 48%;
+            max-width: 48%;
+            background: black;
+            padding: 60px 30px;
+            margin: 1%;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .service:hover,
+        .service:active {
+            background: linear-gradient(135deg, #4B0082, #7D3C98);
+            transform: translateY(-10px);
+        }
+
+        .service h3 {
+            font-size: 2em;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .service p {
+            font-size: 1.2em;
+            color: #ddd;
+        }
+
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .slider-nav button {
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .slider-nav button:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        footer {
+            background-color: #b7b0b0;
+            color: #333;
+            padding: 40px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .footer-logo img {
+            width: 150px;
+            height: auto;
+        }
+
+        .footer-content p {
+            margin: 10px 0;
+        }
+
+        .footer-socials {
+            display: flex;
+            text-align: center;
+        }
+
+        .footer-socials a {
+            color: #000;
+            margin: 5px 10px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-socials a img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .footer-socials a:hover {
+            color: #7D3C98;
+        }
+
+        .testimonial-section {
+            padding: 40px 0;
+            background: #f0f0f0;
+        }
+
+        .testimonial-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-header h2 {
+            font-size: 2.5em;
+            color: #4B0082;
+        }
+
+        .testimonial-header p {
+            font-size: 1.2em;
+            color: #666;
+        }
+
+        .testimonial-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 300px;
+            flex: 1;
+        }
+
+        .testimonial img {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+
+        .testimonial p {
+            font-size: 1.1em;
+            color: #333;
+            margin: 15px 0;
+        }
+
+        .testimonial span {
+            font-size: 0.9em;
+            color: #888;
+        }
+
+        @media (max-width: 1024px) {
+            .service {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-top: 10px;
+            }
+
+            .nav-buttons {
+                flex-direction: column;
+                margin-top: 10px;
+            }
+
+            .nav-buttons a {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-logo">
+            <a href="index.html">
+                <img src="logo/simple.png" alt="Aicumen.AI Logo">
+            </a>
+        </div>
+        <nav class="nav-links">
+            <a href="./index.html">Home</a>
+            <a href="#">Services</a>
+            <a href="./aboutus.html">About Us</a>
+            <a href="./guide.html">Guide</a>
+        </nav>
+        <div class="nav-buttons">
+            <a href="#" class="login">Log In</a>
+            <a href="#" class="signup">Sign up free</a>
+        </div>
+    </header>
+    <div class="container">
+        <h2>Our Services</h2>
+        <div class="services-section">
+            <div class="services-wrapper" id="services-wrapper">
+                <div class="service">
+                    <h3>Multiple Data Sources</h3>
+                    <p>Import data from multiple sources to train your chatbot.</p>
+                </div>
+                <div class="service">
+                    <h3>Text To Speech</h3>
+                    <p>Enable your chatbot to interact with users through speech.</p>
+                </div>
+                <div class="service">
+                    <h3>Speech To Text</h3>
+                    <p>Your chatbot understands spoken words. Convert speech into text effortlessly.</p>
+                </div>
+                <div class="service">
+                    <h3>Training</h3>
+                    <p>Keep your chatbot updated with the latest data by adding new information at any time, ensuring effective responses to user queries.</p>
+                </div>
+                <div class="service">
+                    <h3>Embeddable</h3>
+                    <p>Seamless integration of your chatbots with your existing websites.</p>
+                </div>
+                <div class="service">
+                    <h3>Powerful LLMs</h3>
+                    <p>Choose from a variety of AI models including GPT-3.5-turbo, Llama-2, and more.</p>
+                </div>
+                <div class="service">
+                    <h3>Integration</h3>
+                    <p>Connect your chatbot to your favorite tools like WhatsApp, Slack, and more.</p>
+                </div>
+                <div class="service">
+                    <h3>Security & Privacy</h3>
+                    <p>Your data is stored securely on our servers for answering queries through the chatbot.</p>
+                </div>
+                <div class="service">
+                    <h3>Chatlogs</h3>
+                    <p>Access chat logs to understand your customers and improve service quality.</p>
+                </div>
+                <div class="service">
+                    <h3>50+ Languages</h3>
+                    <p>Reach your customers in their native language.</p>
+                </div>
+            </div>
+            <div class="slider-nav">
+                <button id="prev">&lt;</button>
+                <button id="next">&gt;</button>
+            </div>
+        </div>
+    </div>
+    <div class="testimonial-section">
+        <div class="testimonial-header">
+            <h2>What Our Clients Say</h2>
+            <p>Here are some testimonials from our satisfied clients.</p>
+        </div>
+        <div class="testimonial-wrapper">
+            <div class="testimonial">
+                <p>"The text-to-speech functionality is incredibly accurate. It's helped us to automate many of our customer service processes."</p>
+                <span>– Alex, CEO of TechCorp</span>
+            </div>
+            <div class="testimonial">
+                <p>"Aicumen.AI's speech-to-text is a game-changer for our voice-activated applications. It’s fast and highly reliable."</p>
+                <span>– Maria, CTO of VoiceTech</span>
+            </div>
+            <div class="testimonial">
+                <p>"Being able to train our chatbot with multiple data sources has drastically improved its performance. Highly recommend!"</p>
+                <span>– John, Product Manager at Innovate</span>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-logo">
+            <img src="logo/simple.png" alt="Aicumen.AI Logo">
+        </div>
+        <div class="footer-content">
+            <p>© 2023 Aicumen.AI. All rights reserved.</p>
+            <p>Contact us: info@aicumen.ai</p>
+        </div>
+        <div class="footer-socials">
+            <a href="https://twitter.com/aicumen">
+                <img src="socials/twitter.png" alt="Twitter">
+                Twitter
+            </a>
+            <a href="https://linkedin.com/company/aicumen">
+                <img src="socials/linkedin.png" alt="LinkedIn">
+                LinkedIn
+            </a>
+            <a href="https://facebook.com/aicumen">
+                <img src="socials/facebook.png" alt="Facebook">
+                Facebook
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        const wrapper = document.getElementById('services-wrapper');
+        const prevBtn = document.getElementById('prev');
+        const nextBtn = document.getElementById('next');
+        const serviceCount = wrapper.children.length;
+        const serviceWidth = wrapper.children[0].clientWidth;
+        let currentIndex = 0;
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + serviceCount) % serviceCount;
+            updateWrapperPosition();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % serviceCount;
+            updateWrapperPosition();
+        });
+
+        function updateWrapperPosition() {
+            const offset = currentIndex * serviceWidth;
+            wrapper.style.transform = `translateX(-${offset}px)`;
+        }
+    </script>
+</body>
+
+</html>

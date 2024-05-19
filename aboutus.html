@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Aicumen.AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!--bootstrap css-->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!--custom css-->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-image: linear-gradient(to right, #4B0082, #320e54);
+            color: white;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .header-logo img {
+            width: 150px;
+            height: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #ccccff;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 1em;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-buttons a {
+            color: white;
+            padding: 10px 15px;
+            margin-left: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            border: 1px solid #ccccff;
+        }
+
+        .nav-buttons .signup {
+            background-color: #7D3C98;
+        }
+
+        .nav-buttons .login:hover,
+        .nav-buttons .signup:hover {
+            background-color: #ccccff;
+            color: #4B0082;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 40px 0;
+            flex: 1;
+        }
+
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1,
+        h2 {
+            color: black;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            font-size: 2.1em;
+            margin-bottom: 40px;
+        }
+
+        p,
+        ul {
+            line-height: 1.6;
+        }
+
+        ul {
+            list-style: disc inside;
+        }
+
+        .team-section {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .team-member {
+            width: 250px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .team-member img {
+            width: 100%;
+            height: auto;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            object-fit: cover;
+        }
+
+        .team-member h3 {
+            margin: 10px 0 5px;
+            font-size: 1.5em;
+            color: black;
+        }
+
+        .team-member p {
+            font-size: 1em;
+            color: #aca7a7;
+        }
+
+        footer {
+            background-color: #b7b0b0;
+            color: #333;
+            padding: 40px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            width: 150px;
+            height: auto;
+        }
+
+        .footer-content {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-content p {
+            margin: 10px 0;
+        }
+
+        .footer-socials {
+            display: flex;
+            text-align: center;
+        }
+
+        .footer-socials a {
+            color: #000000;
+            margin: 0 10px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-socials a img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .footer-socials a:hover {
+            color: #7D3C98;
+        }
+
+        .footer_chatbot_single_h5 {
+            font-weight: 600;
+            font-size: 18px;
+            color: #040E21;
+            margin: 0 0 28px;
+        }
+
+        ._conversation_chatbot_wrappper2 {
+            padding: 50px 0 0;
+            background: #FFFFFF;
+            margin: 0 0 36px;
+        }
+
+        @media (max-width: 1200px) {
+            .team-member {
+                width: 30%;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .header-logo img {
+                width: 120px;
+            }
+
+            .nav-links a {
+                font-size: 0.9em;
+                margin: 0 5px;
+            }
+
+            .nav-buttons a {
+                padding: 5px 10px;
+                font-size: 0.9em;
+                margin-left: 5px;
+            }
+
+            .team-member {
+                width: 45%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .nav-buttons {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-buttons a {
+                margin: 5px 0;
+            }
+
+            .statement {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 30px 15px;
+                font-size: 1.2em;
+            }
+
+            .statement .right {
+                padding-left: 0;
+                margin-top: 20px;
+            }
+
+            .container {
+                width: 90%;
+                padding: 20px 0;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            .team-member {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .team-member img {
+                width: 100px;
+                height: 150px;
+            }
+
+            footer {
+                padding: 20px 0;
+            }
+
+            .footer-logo img {
+                width: 120px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-buttons {
+                display: none;
+            }
+
+            .statement {
+                padding: 20px 10px;
+                font-size: 1em;
+            }
+
+            .team-member img {
+                margin: auto;
+                display: flex;
+                width: 80px;
+                height: 120px;
+            }
+
+            footer {
+                padding: 10px 0;
+            }
+
+            .footer-logo img {
+                width: 100px;
+            }
+
+            .footer-socials {
+                flex-direction: column;
+                display: flex;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-logo">
+            <a href="index.html">
+                <img src="logo/simple.png" alt="Aicumen.AI Logo">
+            </a>
+        </div>
+        <nav class="nav-links">
+            <a href="./index.html">Home</a>
+            <a href="./services.html">Services</a>
+            <a href="#">About Us</a>
+            <a href="./guide.html">Guide</a>
+        </nav>
+        <div class="nav-buttons">
+            <a href="#" class="login">Log In</a>
+            <a href="#" class="signup">Sign up free</a>
+        </div>
+    </header>
+
+    <section class="_conversation_chatbot_wrappper2">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="_conversation_chatbot_title">
+                        <h2 class="_conversation_chatbot_title_h4">Empowering businesses to achieve unparalleled efficiency through innovative AI solutions.</h2>
+                        <p class="_conversation_chatbot_title_p">Our mission is to provide innovative AI solutions that empower businesses and individuals to achieve their goals with efficiency and ease. We believe in the power of technology to transform lives and industries, and we are dedicated to delivering exceptional products and services to our clients.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="content">
+            <div class="section">
+                <h2>Meet Our Team</h2>
+                <div class="team-section">
+                    <div class="team-member">
+                        <img src="aboutus/1.png" alt="Mubashir Nasir">
+                        <h3>Mubashir Nasir</h3>
+                        <p>Backend Developer</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="aboutus/1.png" alt="Ahsanullah">
+                        <h3>Ahsanullah</h3>
+                        <p>Project Manager</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="aboutus/1.png" alt="Muhammad Haris">
+                        <h3>Muhammad Haris</h3>
+                        <p>UX/UI Designer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-logo">
+            <img src="logo/simple.png" alt="Aicumen.AI Logo">
+        </div>
+        <div class="footer-content">
+            <p>Create an account, set up your first chat skill in a matter of minutes, not months. It basically pays for itself.</p>
+        </div>
+        <h5 class="footer_chatbot_single_h5">Social</h5>
+        <div class="footer-socials">
+            <a href="https://facebook.com">
+                <img src="socials/facebook.png" alt="Facebook">Facebook
+            </a>
+            <a href="https://instagram.com">
+                <img src="socials/instagram.png" alt="Instagram">Instagram
+            </a>
+            <a href="https://twitter.com">
+                <img src="socials/twitter.png" alt="Twitter">Twitter
+            </a>
+            <a href="https://linkedin.com">
+                <img src="socials/linkedin.png" alt="LinkedIn">LinkedIn
+            </a>
+        </div>
+    </footer>
+</body>
+
+</html>

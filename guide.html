@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Use - Aicumen.AI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-image: linear-gradient(to right, #4B0082, #320e54);
+            color: white;
+            padding: 0 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .header-logo img {
+            width: 150px;
+            height: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #ccccff;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 1em;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-buttons a {
+            color: white;
+            padding: 10px 15px;
+            margin-left: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            border: 1px solid #ccccff;
+        }
+
+        .nav-buttons .signup {
+            background-color: #7D3C98;
+        }
+
+        .nav-buttons .login:hover,
+        .nav-buttons .signup:hover {
+            background-color: #ccccff;
+            color: #4B0082;
+        }
+
+        /* header {
+            background-image: linear-gradient(to right, #4B0082, #8A2BE2);
+            color: white;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .header-logo img {
+            width: 240px;
+            height: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #ccccff;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 1em;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-buttons a {
+            color: white;
+            padding: 10px 15px;
+            margin-left: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            border: 1px solid #ccccff;
+        }
+
+        .nav-buttons .signup {
+            background-color: #7D3C98;
+        }
+
+        .nav-buttons .login:hover,
+        .nav-buttons .signup:hover {
+            background-color: #ccccff;
+            color: #4B0082;
+        } */
+
+        .main {
+            display: flex;
+            flex: 1;
+            width: 100%;
+        }
+
+        .sidebar {
+            background-color: #f1f1f1;
+            color: #333;
+            width: 250px;
+            padding: 20px;
+            box-sizing: border-box;
+            border-right: 1px solid #ddd;
+        }
+
+        .sidebar h2 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .sidebar a {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            transition: background 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #e0e0e0;
+        }
+
+        .content {
+            background: white;
+            flex: 1;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            box-sizing: border-box;
+            display: none;
+            /* Hide all content sections initially */
+        }
+
+        .content.active {
+            display: block;
+            /* Show the active content section */
+        }
+
+        h1,
+        h2 {
+            color: black;
+        }
+
+        h1 {
+            font-size: 2.5em;
+        }
+
+        h2 {
+            font-size: 2.1em;
+            margin-top: 20px;
+        }
+
+        p,
+        ul {
+            line-height: 1.6;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section video {
+            width: 100%;
+            height: auto;
+            margin-top: 10px;
+        }
+
+        footer {
+            background-color: #b7b0b0;
+            color: #333;
+            padding: 40px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            width: 150px;
+            height: auto;
+        }
+
+        .footer-content {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-content p {
+            margin: 10px 0;
+        }
+
+        .footer-socials {
+            display: flex;
+            text-align: center;
+        }
+
+        .footer-socials a {
+            color: #000000;
+            margin: 5px 10px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-socials a img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .footer-socials a:hover {
+            color: #7D3C98;
+        }
+
+        .footer_chatbot_single_h5 {
+            font-weight: 600;
+            font-size: 18px;
+            color: #040E21;
+            margin: 0 0 28px;
+        }
+
+        @media (max-width: 1024px) {
+            .sidebar {
+                width: 200px;
+            }
+
+            .content {
+                margin: 20px 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .nav-buttons {
+                display: none;
+                /* flex-direction: column;
+                align-items: flex-start; */
+            }
+
+            .nav-buttons a {
+                margin: 5px 0;
+            }
+
+            .sidebar {
+                display: none;
+            }
+
+            .content {
+                margin: 20px 5px;
+            }
+
+            footer {
+                padding: 20px 0;
+            }
+
+            .footer-logo img {
+                width: 120px;
+            }
+
+            @media (max-width: 480px) {
+
+
+                .nav-buttons {
+                    display: none;
+                    /* flex-direction: column;
+                align-items: flex-start; */
+                }
+
+                footer {
+                    padding: 10px 0;
+                }
+
+                .footer-logo img {
+                    width: 100px;
+                }
+
+                .footer-socials {
+                    flex-direction: column;
+                    display: flex;
+                    text-align: center;
+                }
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-logo">
+            <img src="logo/simple.png" alt="Aicumen.AI Logo">
+        </div>
+        <nav class="nav-links">
+            <a href="./index.html">Home</a>
+            <a href="./services.html">Services</a>
+            <a href="./aboutus.html">About Us</a>
+            <a href="#">Guide</a>
+        </nav>
+        <div class="nav-buttons">
+            <a href="#" class="login">Log In</a>
+            <a href="#" class="signup">Sign up free</a>
+        </div>
+    </header>
+    <div class="main">
+        <div class="sidebar">
+            <h2>Guide</h2>
+            <a href="#step1" class="sidebar-link" data-target="step1">Getting started</a>
+            <a href="#step2" class="sidebar-link" data-target="step2">Chatbot settings</a>
+            <a href="#step3" class="sidebar-link" data-target="step3">Training</a>
+            <a href="#step4" class="sidebar-link" data-target="step4">Testing and Integration</a>
+        </div>
+        <div class="content section" id="step1">
+            <h1>Getting started</h1>
+            <p>First, log in to the website.</p>
+            <video controls>
+                <source src="video1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p>Click on "Create Chatbot."</p>
+            <video controls>
+                <source src="video2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="content section" id="step2">
+            <h1>Chatbot settings</h1>
+            <p>Enter the details according to your desired chatbot configuration.</p>
+            <video controls>
+                <source src="video3.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p>Now your chatbot is almost complete. Just click on your chatbot's name (in my case, it's "Aicumen AI").
+            </p>
+            <video controls>
+                <source src="video4.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="content section" id="step3">
+            <h1>Training</h1>
+            <p>Go to the "Source" tab to train your chatbot. You can train your chatbot using various methods, but right
+                now I am using question-and-answer training.</p>
+            <video controls>
+                <source src="video5.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p>Add the questions and click on the "Retrain" button.</p>
+            <video controls>
+                <source src="video6.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p>Now your chatbot is ready to use. I will now demonstrate my data.</p>
+            <video controls>
+                <source src="video7.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p>Great, it's working!</p>
+        </div>
+        <div class="content section" id="step4">
+            <h1>Testing and Integration</h1>
+            <p>Now, just copy the link from the tab and paste it into your app or website code. For testing, I am just
+                pasting it into a new tab to check if it's working.</p>
+            <video controls>
+                <source src="video8.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p>Perfect, it's working!</p>
+            <p>Thank you for watching.</p>
+            <video controls>
+                <source src="video9.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-logo">
+            <img src="logo/simple.png" alt="Aicumen.AI Logo">
+        </div>
+        <div class="footer-content">
+            <p>Create an account, set up your first chat skill in a matter of minutes, not months. It basically pays for
+                itself.</p>
+        </div>
+        <h5 class="footer_chatbot_single_h5">Social</h5>
+        <div class="footer-socials">
+            <a href="https://facebook.com">
+                <img src="socials/facebook.png" alt="Facebook">Facebook
+            </a>
+            <a href="https://instagram.com">
+                <img src="socials/instagram.png" alt="Instagram">Instagram
+            </a>
+            <a href="https://twitter.com">
+                <img src="socials/twitter.png" alt="Twitter">Twitter
+            </a>
+            <a href="https://linkedin.com">
+                <img src="socials/linkedin.png" alt="LinkedIn">LinkedIn
+            </a>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const links = document.querySelectorAll(".sidebar-link");
+            const sections = document.querySelectorAll(".content");
+
+            links.forEach(link => {
+                link.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute("data-target");
+
+                    sections.forEach(section => {
+                        section.classList.remove("active");
+                    });
+
+                    document.getElementById(targetId).classList.add("active");
+                });
+            });
+
+            // Set the first section as active by default
+            if (sections.length > 0) {
+                sections[0].classList.add("active");
+            }
+        });
+    </script>
+</body>
+
+</html>

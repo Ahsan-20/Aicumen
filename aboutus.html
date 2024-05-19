@@ -6,16 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Aicumen.AI</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!--bootstrap css-->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <!--custom css-->
     <link rel="stylesheet" href="assets/css/main.css">
     <style>
         body {
-            font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
             background-color: #f9f9f9;
             color: #333;
             display: flex;
@@ -26,22 +23,26 @@
         header {
             background-image: linear-gradient(to right, #4B0082, #320e54);
             color: white;
-            padding: 10px 15px;
+            padding: 0 15px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             width: 100%;
-            box-sizing: border-box;
+            position: relative;
+            z-index: 1000;
         }
 
         .header-logo img {
-            width: 150px;
+            width: 200px;
             height: auto;
         }
 
         .nav-links {
             display: flex;
             align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+            z-index: 1000;
         }
 
         .nav-links a {
@@ -49,6 +50,8 @@
             margin: 0 10px;
             text-decoration: none;
             font-size: 1em;
+            position: relative;
+            z-index: 1000;
         }
 
         .nav-links a:hover {
@@ -58,6 +61,7 @@
         .nav-buttons {
             display: flex;
             align-items: center;
+            z-index: 1001;
         }
 
         .nav-buttons a {
@@ -67,6 +71,8 @@
             text-decoration: none;
             border-radius: 5px;
             border: 1px solid #ccccff;
+            position: relative;
+            z-index: 1000;
         }
 
         .nav-buttons .signup {
@@ -79,10 +85,63 @@
             color: #4B0082;
         }
 
+        .menu-icon {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 1002;
+        }
+
+        .menu-icon div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links,
+            .nav-buttons {
+                display: none;
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+                background-color: #4B0082;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                padding: 10px 0;
+                z-index: 999;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-buttons.show {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+            }
+
+            .nav-links a,
+            .nav-buttons a {
+                padding: 10px 20px;
+                width: 100%;
+                text-align: left;
+                margin: 5px 0;
+            }
+
+            .menu-icon {
+                display: flex;
+            }
+        }
+
         .container {
             width: 80%;
             margin: 0 auto;
-            padding: 40px 0;
+            padding: 20px 0;
             flex: 1;
         }
 
@@ -94,60 +153,28 @@
             text-align: center;
         }
 
-        h1,
         h2 {
             color: black;
-        }
-
-        h1 {
-            margin-bottom: 20px;
-            font-size: 2.5em;
-        }
-
-        h2 {
             font-size: 2.1em;
-            margin-bottom: 40px;
-        }
-
-        p,
-        ul {
-            line-height: 1.6;
-        }
-
-        ul {
-            list-style: disc inside;
         }
 
         .team-section {
             display: flex;
-            justify-content: center;
             flex-wrap: wrap;
-            gap: 30px;
+            justify-content: center;
+            gap: 20px;
         }
 
         .team-member {
-            width: 250px;
-            margin-bottom: 30px;
             text-align: center;
+            margin: 20px;
         }
 
         .team-member img {
-            width: 100%;
-            height: auto;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
-            margin-bottom: 10px;
             object-fit: cover;
-        }
-
-        .team-member h3 {
-            margin: 10px 0 5px;
-            font-size: 1.5em;
-            color: black;
-        }
-
-        .team-member p {
-            font-size: 1em;
-            color: #aca7a7;
         }
 
         footer {
@@ -158,23 +185,12 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-        }
-
-        .footer-logo {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 20px;
+            width: 100%;
         }
 
         .footer-logo img {
             width: 150px;
             height: auto;
-        }
-
-        .footer-content {
-            text-align: center;
-            margin-bottom: 20px;
         }
 
         .footer-content p {
@@ -187,8 +203,8 @@
         }
 
         .footer-socials a {
-            color: #000000;
-            margin: 0 10px;
+            color: #000;
+            margin: 5px 10px;
             text-decoration: none;
             display: flex;
             align-items: center;
@@ -203,155 +219,28 @@
         .footer-socials a:hover {
             color: #7D3C98;
         }
-
-        .footer_chatbot_single_h5 {
-            font-weight: 600;
-            font-size: 18px;
-            color: #040E21;
-            margin: 0 0 28px;
-        }
-
-        ._conversation_chatbot_wrappper2 {
-            padding: 50px 0 0;
-            background: #FFFFFF;
-            margin: 0 0 36px;
-        }
-
-        @media (max-width: 1200px) {
-            .team-member {
-                width: 30%;
-            }
-        }
-
-        @media (max-width: 992px) {
-            .header-logo img {
-                width: 120px;
-            }
-
-            .nav-links a {
-                font-size: 0.9em;
-                margin: 0 5px;
-            }
-
-            .nav-buttons a {
-                padding: 5px 10px;
-                font-size: 0.9em;
-                margin-left: 5px;
-            }
-
-            .team-member {
-                width: 45%;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .nav-buttons {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .nav-buttons a {
-                margin: 5px 0;
-            }
-
-            .statement {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 30px 15px;
-                font-size: 1.2em;
-            }
-
-            .statement .right {
-                padding-left: 0;
-                margin-top: 20px;
-            }
-
-            .container {
-                width: 90%;
-                padding: 20px 0;
-            }
-
-            h1 {
-                font-size: 2em;
-            }
-
-            h2 {
-                font-size: 1.8em;
-            }
-
-            .team-member {
-                width: 100%;
-                margin-bottom: 20px;
-            }
-
-            .team-member img {
-                width: 100px;
-                height: 150px;
-            }
-
-            footer {
-                padding: 20px 0;
-            }
-
-            .footer-logo img {
-                width: 120px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .nav-buttons {
-                display: none;
-            }
-
-            .statement {
-                padding: 20px 10px;
-                font-size: 1em;
-            }
-
-            .team-member img {
-                margin: auto;
-                display: flex;
-                width: 80px;
-                height: 120px;
-            }
-
-            footer {
-                padding: 10px 0;
-            }
-
-            .footer-logo img {
-                width: 100px;
-            }
-
-            .footer-socials {
-                flex-direction: column;
-                display: flex;
-                text-align: center;
-            }
-        }
     </style>
 </head>
 
 <body>
     <header>
         <div class="header-logo">
-            <a href="index.html">
-                <img src="logo/simple.png" alt="Aicumen.AI Logo">
-            </a>
+            <a href="./index.html"><img src="logo/simple.png" alt="Aicumen.AI Logo"></a>
         </div>
-        <nav class="nav-links">
+        <nav class="nav-links" id="nav-links">
             <a href="./index.html">Home</a>
-            <a href="./services.html">Services</a>
-            <a href="#">About Us</a>
+            <a href="./aboutus.html">About Us</a>
             <a href="./guide.html">Guide</a>
+            <a href="./services.html">Services</a>
         </nav>
-        <div class="nav-buttons">
+        <div class="nav-buttons" id="nav-buttons">
             <a href="#" class="login">Log In</a>
             <a href="#" class="signup">Sign up free</a>
+        </div>
+        <div class="menu-icon" id="menu-icon">
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
     </header>
 
@@ -374,14 +263,14 @@
                 <h2>Meet Our Team</h2>
                 <div class="team-section">
                     <div class="team-member">
-                        <img src="aboutus/2.png" alt="Mubashir Nasir">
+                        <img src="aboutus/3.png" alt="Mubashir Nasir">
                         <h3>Mubashir Nasir</h3>
                         <p>Backend Developer</p>
                     </div>
                     <div class="team-member">
                         <img src="aboutus/1.png" alt="Ahsanullah">
                         <h3>Ahsanullah</h3>
-                        <p>RestfulAPI/ML Developer</p>
+                        <p>RestfulAPI/ML Expert</p>
                     </div>
                     <div class="team-member">
                         <img src="aboutus/3.png" alt="Muhammad Haris">
@@ -416,6 +305,17 @@
             </a>
         </div>
     </footer>
+
+    <script>
+        const menuIcon = document.getElementById('menu-icon');
+        const navLinks = document.getElementById('nav-links');
+        const navButtons = document.getElementById('nav-buttons');
+
+        menuIcon.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+            navButtons.classList.toggle('show');
+        });
+    </script>
 </body>
 
 </html>

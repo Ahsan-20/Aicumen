@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Aicumen.AI</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <style>
@@ -101,7 +100,6 @@
         }
 
         @media (max-width: 768px) {
-
             .nav-links,
             .nav-buttons {
                 display: none;
@@ -120,12 +118,12 @@
                 display: flex;
             }
 
-            /* .nav-buttons.show { */
-                /* display: flex; */
-                /* flex-direction: column; */
-                /* align-items: flex-start; */
-                /* width: 100%; */
-            /* } */
+            .nav-buttons.show {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+            }
 
             .nav-links a,
             .nav-buttons a {
@@ -137,35 +135,6 @@
 
             .menu-icon {
                 display: flex;
-            }
-
-            @media (max-width: 480px) {
-
-
-                /* .nav-buttons {
-                    display: none;
-                    flex-direction: column;
-                    align-items: flex-start;
-                } */
-
-                footer {
-                    padding: 10px 0;
-                }
-
-                .footer-logo img {
-                    width: 100px;
-                }
-
-                .footer-socials {
-                    flex-direction: column;
-                    display: flex;
-                    text-align: center;
-                }
-
-                .footer-content p {
-                    font-size: 13px;
-                    padding: 10px 10px 10px 30px;
-                }
             }
         }
 
@@ -256,19 +225,18 @@
 <body>
     <header>
         <div class="header-logo">
-            <a href="./index.html"><img src="./logo/simple.png" alt="Aicumen.AI Logo"></a>
+            <a href="./index.html"><img src="logo/simple.png" alt="Aicumen.AI Logo"></a>
         </div>
         <nav class="nav-links" id="nav-links">
             <a href="./index.html">Home</a>
             <a href="./aboutus.html">About Us</a>
             <a href="./guide.html">Guide</a>
             <a href="./services.html">Services</a>
+        </nav>
+        <div class="nav-buttons" id="nav-buttons">
             <a href="#" class="login">Log In</a>
             <a href="#" class="signup">Sign up free</a>
-        </nav>
-        <!-- <div class="nav-buttons" id="nav-buttons">
-            
-        </div> -->
+        </div>
         <div class="menu-icon" id="menu-icon">
             <div></div>
             <div></div>
@@ -281,12 +249,8 @@
             <div class="row">
                 <div class="col-12">
                     <div class="_conversation_chatbot_title">
-                        <h2 class="_conversation_chatbot_title_h4">Empowering businesses to achieve unparalleled
-                            efficiency through innovative AI solutions.</h2>
-                        <p class="_conversation_chatbot_title_p">Our mission is to provide innovative AI solutions that
-                            empower businesses and individuals to achieve their goals with efficiency and ease. We
-                            believe in the power of technology to transform lives and industries, and we are dedicated
-                            to delivering exceptional products and services to our clients.</p>
+                        <h2 class="_conversation_chatbot_title_h4">Empowering businesses to achieve unparalleled efficiency through innovative AI solutions.</h2>
+                        <p class="_conversation_chatbot_title_p">Our mission is to provide innovative AI solutions that empower businesses and individuals to achieve their goals with efficiency and ease. We believe in the power of technology to transform lives and industries, and we are dedicated to delivering exceptional products and services to our clients.</p>
                     </div>
                 </div>
             </div>
@@ -320,7 +284,7 @@
 
     <footer>
         <div class="footer-logo">
-            <img src="./logo/simple.png" alt="Aicumen.AI Logo">
+            <img src="logo/simple.png" alt="Aicumen.AI Logo">
         </div>
         <div class="footer-content" id="footer-content">
             <p>© 2023 Aicumen.AI. All rights reserved.</p>
@@ -329,16 +293,16 @@
         <h5 class="footer_chatbot_single_h5">Social</h5>
         <div class="footer-socials">
             <a href="https://facebook.com">
-                <img src="./socials/facebook.png" alt="Facebook">Facebook
+                <img src="socials/facebook.png" alt="Facebook">Facebook
             </a>
             <a href="https://instagram.com">
-                <img src="./socials/instagram.png" alt="Instagram">Instagram
+                <img src="socials/instagram.png" alt="Instagram">Instagram
             </a>
             <a href="https://twitter.com">
-                <img src="./socials/twitter.png" alt="Twitter">Twitter
+                <img src="socials/twitter.png" alt="Twitter">Twitter
             </a>
             <a href="https://linkedin.com">
-                <img src="./socials/linkedin.png" alt="LinkedIn">LinkedIn
+                <img src="socials/linkedin.png" alt="LinkedIn">LinkedIn
             </a>
         </div>
     </footer>

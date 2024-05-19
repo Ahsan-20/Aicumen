@@ -336,23 +336,130 @@
                 }
             }
         }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+            z-index: 1000;
+        }
+
+        .nav-links a {
+            color: #ccccff;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 1em;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+            z-index: 1001;
+        }
+
+        .nav-buttons a {
+            color: white;
+            padding: 10px 15px;
+            margin-left: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            border: 1px solid #ccccff;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .nav-buttons .signup {
+            background-color: #7D3C98;
+        }
+
+        .nav-buttons .login:hover,
+        .nav-buttons .signup:hover {
+            background-color: #ccccff;
+            color: #4B0082;
+        }
+
+        .menu-icon {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 1002;
+        }
+
+        .menu-icon div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 4px;
+        }
+
+        @media (max-width: 768px) 
+        {
+            .nav-links,
+            .nav-buttons {
+                display: none;
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+                background-color: #4B0082;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                padding: 10px 0;
+                z-index: 999;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-buttons.show {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+            }
+
+            .nav-links a,
+            .nav-buttons a {
+                padding: 10px 20px;
+                width: 100%;
+                text-align: left;
+                margin: 5px 0;
+            }
+
+            .menu-icon {
+                display: flex;
+            }
+        }
     </style>
 </head>
 
 <body>
     <header>
         <div class="header-logo">
-            <img src="logo/simple.png" alt="Aicumen.AI Logo">
+            <a href="./index.html"><img src="logo/simple.png" alt="Aicumen.AI Logo"></a>
         </div>
-        <nav class="nav-links">
+        <nav class="nav-links" id="nav-links">
             <a href="./index.html">Home</a>
-            <a href="./services.html">Services</a>
+            <a href="./guide.html">Guide</a>
             <a href="./aboutus.html">About Us</a>
-            <a href="#">Guide</a>
+            <a href="./services.html">Services</a>
         </nav>
-        <div class="nav-buttons">
+        <div class="nav-buttons" id="nav-buttons">
             <a href="#" class="login">Log In</a>
             <a href="#" class="signup">Sign up free</a>
+        </div>
+        <div class="menu-icon" id="menu-icon">
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
     </header>
     <div class="main">
@@ -472,6 +579,15 @@
             if (sections.length > 0) {
                 sections[0].classList.add("active");
             }
+        });
+
+        const menuIcon = document.getElementById('menu-icon');
+        const navLinks = document.getElementById('nav-links');
+        const navButtons = document.getElementById('nav-buttons');
+
+        menuIcon.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+            navButtons.classList.toggle('show');
         });
     </script>
 </body>

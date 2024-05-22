@@ -7,6 +7,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>AicumenAI</title>
    <link rel="icon" href="logo/simple1.png" type="image/png">
+   <link rel="icon" href="logo/simple1.png" type="image/png">
    <!--fonts-->
    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet">
@@ -35,28 +36,28 @@
                <ul class="navbar-nav _header_hero_list">
                  
                   <li class="nav-item _header_hero_item">
-                     <a href="#0" class="_header_hero_li_link">Home</a>
+                     <a href="#" class="_header_hero_li_link">Home</a>
                   </li>
                   <li class="nav-item _header_hero_item">
-                     <a href="./services.html" class="_header_hero_li_link">Services</a>
+                     <a href="/services" class="_header_hero_li_link">Services</a>
                   </li>
                   <li class="nav-item _header_hero_item">
-                     <a href="./aboutus.html" class="_header_hero_li_link">About Us</a>
+                     <a href="/about-us" class="_header_hero_li_link">About Us</a>
                   </li>
                   <li class="nav-item _header_hero_item">
-                     <a href="./guide.html" class="_header_hero_li_link">Guide</a>
+                     <a href="/guide" class="_header_hero_li_link">Guide</a>
                   </li>
 
 
                </ul>
                <ul class="navbar-nav _header_hero_r8_list">
                   <li class="nav-item dropdown _header_hero_r8_list_item1">
-                     <button class="_header_hero_r8_list_login">
+                     <button class="_header_hero_r8_list_login" onclick="window.open('https://dashboard.aicumen.cloud/', '_blank')">
                         Log In
-                     </button>
+                    </button>                    
                   </li>
                   <li class="nav-item dropdown _header_hero_r8_list_item">
-                     <button class="_header_hero_btn2">
+                     <button class="_header_hero_btn2" onclick="window.open('https://dashboard.aicumen.cloud/', '_blank')">
                         Sign up free
                      </button>
                   </li>
@@ -87,7 +88,7 @@
                      <div class="_header_hero_form_grp">
                         <form class="_header_hero_top_content_button">
 
-                           <button class="_header_hero_signup">Get Started</button>
+                           <button class="_header_hero_signup" onclick="window.open('https://dashboard.aicumen.cloud/', '_blank')">Get Started</button>
                         </form>
                         <!-- <div class="_header_hero_creditcard">
                               <div class="_header_credit_shape">
@@ -99,39 +100,7 @@
                   </div>
                </div>
             </div>
-            <div class="row _header_hero_bottom_row">
-               <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-4">
-                  <a class="_header_bottom_logo" href="#0">
-                     <img class="_header_bottom_logo_img" src="assets/img/header_content_logo1.png"
-                        alt="header_content_logo1">
-                  </a>
-               </div>
-               <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-4">
-                  <a class="_header_bottom_logo" href="#0">
-                     <img class="_header_bottom_logo_img" src="assets/img/header_content_logo2.png"
-                        alt="header_content_logo2">
-                  </a>
-               </div>
-               <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-4">
-                  <a class="_header_bottom_logo" href="#0">
-                     <img class="_header_bottom_logo_img" src="assets/img/header_content_logo3.png"
-                        alt="header_content_logo3">
-                  </a>
-               </div>
-               <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-4">
-                  <a class="_header_bottom_logo" href="#0">
-                     <img class="_header_bottom_logo_img" src="assets/img/header_content_logo4.png"
-                        alt="header_content_logo4">
-                  </a>
-               </div>
-               <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-4">
-                  <a class="_header_bottom_logo" href="#0">
-                     <img class="_header_bottom_logo_img" src="assets/img/header_content_logo5.png"
-                        alt="header_content_logo5">
-                  </a>
-               </div>
-            </div>
-         </div>
+            
       </div>
    </header>
    <!--header section ends here-->
@@ -202,7 +171,7 @@
                   <p class="_feature1_chatbot_content_p">Fast deployment with our expert support. Boost your revenue.
                      Reduce support operations by over 30%. Fast deployment with our expert support</p>
                   <div class="_feature1_chatbot_button">
-                     <button class="_feature_chatbot_btn">Get Started</button>
+                     <button class="_feature_chatbot_btn"  onclick="window.open('https://dashboard.aicumen.cloud/', '_blank')">Get Started</button>
                   </div>
                </div>
             </div>
@@ -230,7 +199,7 @@
                   <p class="_feature2_chatbot_content_p">Fast deployment with our expert support. Boost your revenue.
                      Reduce support operations by over 30%. Fast deployment with our expert support</p>
                   <div class="_feature2_chatbot_button">
-                     <button class="_feature_chatbot_btn">Get Started</button>
+                     <button class="_feature_chatbot_btn"  onclick="window.open('https://dashboard.aicumen.cloud/', '_blank')" >Get Started</button>
                   </div>
                </div>
             </div>
@@ -859,6 +828,14 @@
    <script src="assets/js/bootstrap.min.js">
       
    </script>
+   <script>
+      window.config = {
+          chatbotId: "chatbot_uX4OtJUOPx5Qn6Do3N4B",
+          accessToken: "vzUqgH2zJl2O3pEkTVQQBDKEeDYmH9SeteneZBALtsE3lhTD1JdMY5hI8vmlXHCwSsJhaz5Z2imVQeXsFhmzbcR6ub",
+          userId: "user_zlXpabuXUfjy8hZnfsgG"
+      };
+  </script>
+  <script src="https://dashboard.aicumen.cloud/widget/server_chatbot.js" defer></script>
 </body>
 
 </html>

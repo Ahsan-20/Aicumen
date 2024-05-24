@@ -1,24 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services - Aicumen.AI</title>
-    <link rel="icon" href="logo/simple1.png" type="image/png">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
+        * {
+            box-sizing: border-box
+        }
+
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            font-family: Verdana, sans-serif;
+            margin: 0
+        }
+
+        .slide {
+            display: none
+        }
+
+        .box .service {
+            padding: 25px;
+            text-align: center;
+            color: white;
+            margin: auto;
+            max-width: 450px;max-height: 300px;
+        }
+
+
+        /* Slideshow container */
+        .carousel-container {
+            max-width: 800px;
+            position: relative;
+            margin: auto;
+        }
+
+        /* Next & previous buttons */
+        .previous,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 3px;
+            user-select: none;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        /* Position the "next button" to the right */
+        .next {
+            right: 0;
+        }
+
+        /* On hover, add a black background color with a little bit see-through */
+        .previous:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* The dots/bullets/indicators */
+        .navigation-dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active,
+        .navigation-dot:hover {
+            background-color: #717171;
         }
 
         header {
@@ -58,11 +116,12 @@
         .nav-links a:hover {
             color: white;
         }
+
         .nav-buttons {
-        display: flex;
-        align-items: center;
-        z-index: 1001; /* Ensure buttons are above links */
-    }
+            display: flex;
+            align-items: center;
+            z-index: 1001;
+        }
 
         .nav-buttons a {
             color: white;
@@ -89,7 +148,7 @@
             display: none;
             flex-direction: column;
             cursor: pointer;
-            z-index: 1002; /* Ensure menu icon is above everything */
+            z-index: 1002;
         }
 
         .menu-icon div {
@@ -100,58 +159,42 @@
         }
 
         @media (max-width: 768px) {
-        .nav-links,
-        .nav-buttons {
-            display: none;
-            flex-direction: column;
-            align-items: flex-start;
-            width: 100%;
-            background-color: #4B0082;
-            position: absolute;
-            top: 60px;
-            left: 0;
-            padding: 10px 0;
-            z-index: 999;
-        }
+            .nav-links,
+            .nav-buttons {
+                display: none;
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+                background-color: #4B0082;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                padding: 10px 0;
+                z-index: 999;
+            }
 
-        .nav-links.show {
-            display: flex;
-        }
+            .nav-links.show {
+                display: flex;
+            }
 
-        .nav-buttons.show {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            width: 100%;
-        }
+            .nav-buttons.show {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+            }
 
-        .nav-links a,
-        .nav-buttons a {
-            padding: 10px 20px;
-            width: 100%;
-            text-align: left;
-            margin: 5px 0;
-        }
+            .nav-links a,
+            .nav-buttons a {
+                padding: 10px 20px;
+                width: 100%;
+                text-align: left;
+                margin: 5px 0;
+            }
 
-        .menu-icon {
-            display: flex;
-        }
-    }
-
-
-        .container {
-            width: 80%;
-            margin: 0 auto;
-            padding: 20px 0;
-            flex: 1;
-        }
-
-        .content {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            text-align: center;
+            .menu-icon {
+                display: flex;
+            }
         }
 
         h2 {
@@ -336,7 +379,7 @@
         @media (max-width: 768px) {
             .service {
                 flex: 0 0 100%;
-                max-width: 100%;
+                max-width: 65%;
             }
 
             .nav-links {
@@ -354,6 +397,15 @@
                 margin-left: 0;
                 margin-top: 5px;
             }
+        }
+        div.box{
+            display: contents;
+        }
+        .slide.fade{
+            margin-top: 100px;
+        }
+        .os{display: flex;
+           justify-content: center;
         }
     </style>
 </head>
@@ -379,57 +431,108 @@
             <div></div>
         </div>
     </header>
-
-    <div class="container">
-        <h2>Our Services</h2>
-        <div class="services-section">
-            <div class="services-wrapper" id="services-wrapper">
+<h1 class="os">Our Services</h1>
+    <div class="carousel-container">
+        <div class="slide fade">
+            <div class="box">
                 <div class="service">
-                    <h3>Multiple Data Sources</h3>
+                    <h3>&lt;Multiple Data Sources&gt;</h3>
                     <p>Import data from multiple sources to train your chatbot.</p>
                 </div>
+            </div>
+        </div>
+        <div class="slide fade">
+            <div class="box">
                 <div class="service">
                     <h3>Text To Speech</h3>
                     <p>Enable your chatbot to interact with users through speech.</p>
                 </div>
+            </div>
+        </div>
+        <div class="slide fade">
+            <div class="box">
                 <div class="service">
                     <h3>Speech To Text</h3>
                     <p>Your chatbot understands spoken words. Convert speech into text effortlessly.</p>
                 </div>
+            </div>
+        </div>
+        <div class="slide fade">
+            <div class="box">
                 <div class="service">
                     <h3>Training</h3>
-                    <p>Keep your chatbot updated with the latest data by adding new information at any time, ensuring effective responses to user queries.</p>
+                    <p>Keep your chatbot updated with the latest data by adding new information at any time, ensuring
+                        effective responses to user queries.</p>
                 </div>
+            </div>
+        </div>
+        <div class="slide fade">
+            <div class="box">
                 <div class="service">
                     <h3>Embeddable</h3>
                     <p>Seamless integration of your chatbots with your existing websites.</p>
                 </div>
+            </div>
+        </div>
+        <div class="slide fade">
+            <div class="box">
                 <div class="service">
                     <h3>Powerful LLMs</h3>
                     <p>Choose from a variety of AI models including GPT-3.5-turbo, Llama-2, and more.</p>
                 </div>
+            </div>
+        </div>
+        <div class="slide fade">
+            <div class="box">
                 <div class="service">
                     <h3>Integration</h3>
                     <p>Connect your chatbot to your favorite tools like WhatsApp, Slack, and more.</p>
                 </div>
+            </div>
+        </div>
+        <div class="slide fade">
+            <div class="box">
                 <div class="service">
                     <h3>Security & Privacy</h3>
                     <p>Your data is stored securely on our servers for answering queries through the chatbot.</p>
                 </div>
+            </div>
+        </div>
+        <div class="slide fade">
+            <div class="box">
                 <div class="service">
                     <h3>Chatlogs</h3>
                     <p>Access chat logs to understand your customers and improve service quality.</p>
                 </div>
+            </div>
+        </div>
+        <div class="slide fade">
+            <div class="box">
                 <div class="service">
                     <h3>50+ Languages</h3>
                     <p>Reach your customers in their native language.</p>
                 </div>
             </div>
-            <div class="slider-nav">
-                <button id="prev">&lt;</button>
-                <button id="next">&gt;</button>
-            </div>
         </div>
+
+        <!-- Previous and Next Buttons -->
+        <a class="previous" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+    </div>
+    <br>
+
+    <!-- Navigation Dots-->
+    <div style="text-align:center">
+        <span class="navigation-dot" onclick="currentSlide(1)"></span>
+        <span class="navigation-dot" onclick="currentSlide(2)"></span>
+        <span class="navigation-dot" onclick="currentSlide(3)"></span>
+        <span class="navigation-dot" onclick="currentSlide(4)"></span>
+        <span class="navigation-dot" onclick="currentSlide(5)"></span>
+        <span class="navigation-dot" onclick="currentSlide(6)"></span>
+        <span class="navigation-dot" onclick="currentSlide(7)"></span>
+        <span class="navigation-dot" onclick="currentSlide(8)"></span>
+        <span class="navigation-dot" onclick="currentSlide(9)"></span>
+        <span class="navigation-dot" onclick="currentSlide(10)"></span>
     </div>
     <div class="testimonial-section">
         <div class="testimonial-header">
@@ -438,15 +541,18 @@
         </div>
         <div class="testimonial-wrapper">
             <div class="testimonial">
-                <p>"The text-to-speech functionality is incredibly accurate. It's helped us to automate many of our customer service processes."</p>
+                <p>"The text-to-speech functionality is incredibly accurate. It's helped us to automate many of our
+                    customer service processes."</p>
                 <span>– Alex, CEO of TechCorp</span>
             </div>
             <div class="testimonial">
-                <p>"Aicumen.AI's speech-to-text is a game-changer for our voice-activated applications. It’s fast and highly reliable."</p>
+                <p>"Aicumen.AI's speech-to-text is a game-changer for our voice-activated applications. It’s fast and
+                    highly reliable."</p>
                 <span>– Maria, CTO of VoiceTech</span>
             </div>
             <div class="testimonial">
-                <p>"Being able to train our chatbot with multiple data sources has drastically improved its performance. Highly recommend!"</p>
+                <p>"Being able to train our chatbot with multiple data sources has drastically improved its performance.
+                    Highly recommend!"</p>
                 <span>– John, Product Manager at Innovate</span>
             </div>
         </div>
@@ -476,51 +582,40 @@
     </footer>
 
     <script>
-        const wrapper = document.getElementById('services-wrapper');
-        const prevBtn = document.getElementById('prev');
-        const nextBtn = document.getElementById('next');
-        const serviceCount = wrapper.children.length;
-        let currentIndex = 0;
+        var currentIndex = 0;
+        var slides = document.getElementsByClassName("slide");
 
-        function updateWrapperPosition() {
-            const serviceWidth = wrapper.children[0].clientWidth;
-            const offset = currentIndex * serviceWidth;
-            wrapper.style.transform = `translateX(-${offset}px)`;
+        // Show first slide initially
+        showSlides();
+
+        // Auto advance slides every 3 seconds
+        setInterval(function () {
+            plusSlides(1);
+        }, 3000);
+
+        //Function to move Next
+        function plusSlides(n) {
+            showSlides(currentIndex += n);
         }
 
-        function handlePrevClick() {
-            currentIndex = Math.max(currentIndex - 1, 0);
-            updateWrapperPosition();
+        //Function to move back
+        function currentSlide(n) {
+            showSlides(currentIndex = n - 1);
         }
 
-        function handleNextClick() {
-            currentIndex = Math.min(currentIndex + 1, serviceCount - 1);
-            updateWrapperPosition();
+        //Initiate moving of slides
+        function showSlides() {
+            var i;
+            if (currentIndex >= slides.length) {
+                currentIndex = 0;
+            } else if (currentIndex < 0) {
+                currentIndex = slides.length - 1;
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[currentIndex].style.display = "flex"; /* Changed to flex to maintain centering */
         }
-
-        prevBtn.addEventListener('click', handlePrevClick);
-        nextBtn.addEventListener('click', handleNextClick);
-
-        const menuIcon = document.getElementById('menu-icon');
-        const navLinks = document.getElementById('nav-links');
-        const navButtons = document.getElementById('nav-buttons');
-
-        menuIcon.addEventListener('click', () => {
-            navLinks.classList.toggle('show');
-            navButtons.classList.toggle('show');
-        });
-
-        const footerToggle = document.getElementById('footer-toggle');
-        const footerContent = document.getElementById('footer-content');
-        const footerSocials = document.querySelector('.footer-socials');
-
-        footerToggle.addEventListener('click', () => {
-            footerContent.classList.toggle('show');
-            footerSocials.classList.toggle('show');
-        });
-
-        window.addEventListener('resize', updateWrapperPosition);
-        window.addEventListener('load', updateWrapperPosition);
     </script>
 </body>
 
